@@ -13,8 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tyangs/Soft_UI.git"
+    "url": "git+https://github.com/Tyangs/youngs-ui.git"
   },
+  "files": [
+    "build"
+  ],
   "keywords": [
     "youngs-ui"
   ],
