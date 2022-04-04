@@ -1,7 +1,7 @@
 {
-  "name": "@tyangs/soft-ui",
+  "name": "youngs-ui",
   "version": "0.0.1",
-  "description": "A Soft React component library.",
+  "description": "A Young React component library.",
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
   "types": "build/esm/index.d.ts",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/Tyangs/Soft_UI.git"
   },
   "keywords": [
-    "soft-ui"
+    "youngs-ui"
   ],
   "author": {
     "name": "t.yang",
@@ -23,9 +23,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Tyangs/Soft_UI/issues"
+    "url": "https://github.com/Tyangs/youngs-ui/issues"
   },
-  "homepage": "https://github.com/Tyangs/Soft_UI#readme",
+  "homepage": "https://github.com/Tyangs/youngs-ui#readme",
   "peerDependencies": {
     "react": "*",
     "react-dom": "*"

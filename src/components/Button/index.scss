@@ -1,4 +1,241 @@
-.soft-ui-button {
-	background: red;
-	color: white;
+$size-small-padding: 8px 8px;
+$size-medium-padding: 10px 12px;
+$size-large-padding: 12px 20px;
+$button-disabled-color: var(--youngs-color-info-100);
+$box-shadow: 1px 1px 2px #c7c7c7, -1px -1px 2px #ffffff;
+
+/**
+* mixin generate color、background、border
+*/
+@mixin genColor($color, $bg-color, $border-color) {
+	color: $color;
+	background: $bg-color;
+	border: 1px solid $border-color;
+}
+
+/**
+* mixin generate box-shadow for button press.
+*/
+@mixin genPressShadow($deep, $light) {
+	box-shadow: inset 1px 1px 2px $deep, inset -1px -1px 2px $light;
+}
+
+/**
+* mixin generate color by different type.
+*/
+@mixin genColorByType($type: default) {
+	@if ($type == default) {
+		@include genColor(
+			var(--youngs-color-info-500),
+			linear-gradient(145deg, var(--youngs-color-default), var(--youngs-color-info-50)),
+			var(--youngs-color-info-300)
+		);
+		&:hover {
+			@include genColor(
+				var(--youngs-color-info-600),
+				linear-gradient(145deg, var(--youngs-color-default), var(--youngs-color-info-100)),
+				var(--youngs-color-info-400)
+			);
+		}
+		&:active {
+			@include genPressShadow(var(--youngs-color-info-200), var(--youngs-color-default));
+		}
+	} @else {
+		@include genColor(
+			var(--youngs-color-default),
+			linear-gradient(
+				145deg,
+				var(--youngs-color-#{$type}-400),
+				var(--youngs-color-#{$type}-600)
+			),
+			var(--youngs-color-#{$type}-500)
+		);
+		&:hover {
+			@include genColor(
+				var(--youngs-color-default),
+				linear-gradient(
+					145deg,
+					var(--youngs-color-#{$type}-500),
+					var(--youngs-color-#{$type}-700)
+				),
+				var(--youngs-color-#{$type}-600)
+			);
+		}
+		&:active {
+			@include genPressShadow(
+				var(--youngs-color-#{$type}-700),
+				var(--youngs-color-#{$type}-500)
+			);
+		}
+	}
+}
+
+/**
+* mixin outline styles by different type.
+*/
+@mixin genOutlineByType($type: default) {
+	@if ($type == default) {
+		// TODO: will add default case.
+	} @else {
+		@include genColor(
+			var(--youngs-color-#{$type}-500),
+			transparent,
+			var(--youngs-color-#{$type}-500)
+		);
+		&:hover {
+			@include genColor(
+				var(--youngs-color-#{$type}-600),
+				transparent,
+				var(--youngs-color-#{$type}-600)
+			);
+		}
+		&:active {
+			@include genPressShadow(var(--youngs-color-info-200), var(--youngs-color-default));
+		}
+	}
+}
+
+/**
+* mixin disabled styles by different type.
+*/
+@mixin genDisabledByType($type: default) {
+	pointer-events: none;
+	@if ($type == default) {
+		@include genColor(
+			$button-disabled-color,
+			var(--youngs-color-default),
+			$button-disabled-color
+		);
+
+		&:hover,
+		&:active {
+			@include genColor(
+				$button-disabled-color,
+				var(--youngs-color-default),
+				$button-disabled-color
+			);
+		}
+	} @else {
+		@include genColor(
+			var(--youngs-color-default),
+			var(--youngs-color-#{$type}-200),
+			var(--youngs-color-#{$type}-200)
+		);
+
+		&:hover,
+		&:active {
+			@include genColor(
+				var(--youngs-color-default),
+				var(--youngs-color-#{$type}-200),
+				var(--youngs-color-#{$type}-200)
+			);
+		}
+	}
+}
+
+.youngs-button {
+	display: inline-block;
+	white-space: nowrap;
+	cursor: pointer;
+	text-align: center;
+	outline: none;
+	box-sizing: border-box;
+	transition: 0.1s;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 1;
+	border-radius: 4px;
+	box-shadow: $box-shadow;
+	// 👇🏻 default size & type
+	padding: $size-medium-padding;
+	@include genColorByType(default);
+	// 👇🏻 outline
+	&--outline {
+		@include genOutlineByType(info);
+	}
+	// 👇🏻 disabled
+	&--disabled {
+		@include genDisabledByType(default);
+	}
+	// 👇🏻 round
+	&--shape-round {
+		border-radius: 18px;
+	}
+	// 👇🏻 square
+	&--shape-square {
+	}
+	// 👇🏻 circle
+	&--shape-square {
+	}
+
+	// 👇🏻 different type
+	&--type-primary {
+		@include genColorByType(primary);
+		// 👇🏻 primary outline
+		&.youngs-button--outline {
+			@include genOutlineByType(primary);
+		}
+		// 👇🏻 primary disabled
+		&.youngs-button--disabled {
+			@include genDisabledByType(primary);
+		}
+	}
+	&--type-success {
+		@include genColorByType(success);
+		// 👇🏻 primary outline
+		&.youngs-button--outline {
+			@include genOutlineByType(success);
+		}
+		// 👇🏻 primary disabled
+		&.youngs-button--disabled {
+			@include genDisabledByType(success);
+		}
+	}
+	&--type-warning {
+		@include genColorByType(warning);
+		// 👇🏻 primary outline
+		&.youngs-button--outline {
+			@include genOutlineByType(warning);
+		}
+		// 👇🏻 primary disabled
+		&.youngs-button--disabled {
+			@include genDisabledByType(warning);
+		}
+	}
+	&--type-danger {
+		@include genColorByType(danger);
+		// 👇🏻 primary outline
+		&.youngs-button--outline {
+			@include genOutlineByType(danger);
+		}
+		// 👇🏻 primary disabled
+		&.youngs-button--disabled {
+			@include genDisabledByType(danger);
+		}
+	}
+	&--type-info {
+		@include genColorByType(info);
+		// 👇🏻 primary outline
+		&.youngs-button--outline {
+			@include genOutlineByType(info);
+		}
+		// 👇🏻 primary disabled
+		&.youngs-button--disabled {
+			@include genDisabledByType(info);
+		}
+	}
+
+	// 👇🏻 different size
+	&--size-small {
+		padding: $size-small-padding;
+		&.youngs-button--shape-round {
+			border-radius: 16px;
+		}
+	}
+	&--size-large {
+		padding: $size-large-padding;
+		&.youngs-button--shape-round {
+			border-radius: 20px;
+		}
+	}
 }

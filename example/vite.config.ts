@@ -7,7 +7,7 @@ const resolvePath = (r: string) => path.resolve(__dirname, r);
 export default {
 	plugins: [react()],
 	server: {
-		port: 3006,
+		port: 3007,
 		open: true,
 	},
 	optimizeDeps: {
@@ -15,7 +15,7 @@ export default {
 	},
 	resolve: {
 		alias: {
-			'@tyangs/soft-ui': resolvePath('../'),
+			'youngs-ui': resolvePath('../src'),
 		},
 	},
 };

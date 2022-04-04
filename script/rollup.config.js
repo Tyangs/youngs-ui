@@ -17,7 +17,7 @@ const banner = `/**
 */
 `;
 
-const multiInputList = ['src/**/*.ts', 'src/**/**/*.tsx'];
+const multiInputList = ['src/**/*.ts', 'src/**/**/*.tsx', 'src/styles/index.scss'];
 
 const cssOutput = 'build/styles/index.css';
 
@@ -27,6 +27,7 @@ const getCommonPlugins = () => {
 		commonjs(),
 		scss({
 			output: cssOutput,
+			outputStyle: 'compressed',
 		}),
 		typescript({
 			exclude: ['example'],
@@ -58,4 +59,4 @@ const cjsConfig = {
 	},
 };
 
-export default [esmConfig];
+export default [esmConfig, cjsConfig];
