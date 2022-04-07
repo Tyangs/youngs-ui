@@ -1,7 +1,8 @@
-name: Youngs UI Site Deploy
+name: Site Deploy
 
 on:
     push:
+    pull_request:
         branches:
             - main
     workflow_dispatch:
@@ -30,8 +31,7 @@ jobs:
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
                       ${{ runner.os }}-yarn-
-            - run: yarn install
-            - run: yarn build:site
+            - run: yarn action
 
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3

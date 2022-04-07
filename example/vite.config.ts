@@ -5,6 +5,7 @@ const resolvePath = (r: string) => path.resolve(__dirname, r);
 
 // https://vitejs.dev/config/
 export default {
+	base: './',
 	plugins: [react()],
 	server: {
 		port: 3007,
