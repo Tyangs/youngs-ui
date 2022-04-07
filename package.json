@@ -9,6 +9,7 @@
     "dev": "cd example && yarn && yarn vite",
     "build": "rm -rf build && rollup --config script/rollup.config.js",
     "build:site": "cd example && yarn build",
+    "action": "yarn install && cd example && yarn install && yarn build",
     "release": "yarn build && release-it",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
