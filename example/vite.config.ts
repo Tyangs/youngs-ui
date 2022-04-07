@@ -18,4 +18,7 @@ export default {
 			'youngs-ui': resolvePath('../src'),
 		},
 	},
+	build: {
+		outDir: '../site',
+	},
 };
