@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter, Routes, Route, Link } from 'react-router-dom';
 import Button from './pages/Button';
 import Loading from './pages/Loading';
 
 const AllRoute = () => {
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<nav>
 				<ul>
 					<li>
@@ -22,7 +22,7 @@ const AllRoute = () => {
 					<Route path="youngs-ui/loading" element={<Loading />} />
 				</Routes>
 			</nav>
-		</BrowserRouter>
+		</HashRouter>
 	);
 };
 
