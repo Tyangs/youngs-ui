@@ -8,18 +8,18 @@ const AllRoute = () => {
 			<nav>
 				<ul>
 					<li>
-						<Link to="/button">Button</Link>
+						<Link to="youngs-ui/button">Button</Link>
 					</li>
 					<li>
-						<Link to="/loading">Loading</Link>
+						<Link to="youngs-ui/loading">Loading</Link>
 					</li>
 					<li>
-						<Link to="/users">Users</Link>
+						<Link to="youngs-ui/users">Users</Link>
 					</li>
 				</ul>
 				<Routes>
-					<Route path="/button" element={<Button />} />
-					<Route path="/loading" element={<Loading />} />
+					<Route path="youngs-ui/button" element={<Button />} />
+					<Route path="youngs-ui/loading" element={<Loading />} />
 				</Routes>
 			</nav>
 		</BrowserRouter>
