@@ -1,14 +1,17 @@
-export interface IButtonProps {
+import React from 'react';
+import { SizeEnum, ThemeEnum } from '../../types';
+
+export interface ButtonProps {
 	/**
 	 * Button size
 	 * @default 'medium'
 	 */
-	size?: 'small' | 'medium' | 'large';
+	size?: SizeEnum;
 	/**
-	 * Button type
-	 * @default 'default'
+	 * Button theme
+	 * @default -
 	 */
-	type?: 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info';
+	theme?: ThemeEnum;
 	/**
 	 * Button shape
 	 * @default 'rectangle'
@@ -45,3 +48,5 @@ export interface IButtonProps {
 	 */
 	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
+
+export interface IButtonProps extends ButtonProps, React.ButtonHTMLAttributes<HTMLButtonElement> {}
