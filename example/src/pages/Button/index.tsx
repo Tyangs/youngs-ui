@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button } from 'youngs-ui';
 import './index.scss';
 
@@ -7,47 +8,47 @@ const ButtonPage = () => {
 			<div className="line">
 				<h3>Type: </h3>
 				<Button>默认按钮</Button>
-				<Button type="primary">主要按钮</Button>
-				<Button type="success">成功按钮</Button>
-				<Button type="warning">信息按钮</Button>
-				<Button type="danger">警告按钮</Button>
-				<Button type="info">信息按钮</Button>
+				<Button theme="primary">主要按钮</Button>
+				<Button theme="success">成功按钮</Button>
+				<Button theme="warning">信息按钮</Button>
+				<Button theme="danger">警告按钮</Button>
+				<Button theme="info">信息按钮</Button>
 			</div>
 			<div className="line">
 				<h3>Outline: </h3>
 				<Button outline>默认按钮</Button>
-				<Button type="primary" outline>
+				<Button theme="primary" outline>
 					主要按钮
 				</Button>
-				<Button type="success" outline>
+				<Button theme="success" outline>
 					成功按钮
 				</Button>
-				<Button type="warning" outline>
+				<Button theme="warning" outline>
 					信息按钮
 				</Button>
-				<Button type="danger" outline>
+				<Button theme="danger" outline>
 					警告按钮
 				</Button>
-				<Button type="info" outline>
+				<Button theme="info" outline>
 					信息按钮
 				</Button>
 			</div>
 			<div className="line">
 				<h3>Disabled: </h3>
 				<Button disabled>默认按钮</Button>
-				<Button type="primary" disabled>
+				<Button theme="primary" disabled>
 					主要按钮
 				</Button>
-				<Button type="success" disabled>
+				<Button theme="success" disabled>
 					成功按钮
 				</Button>
-				<Button type="warning" disabled>
+				<Button theme="warning" disabled>
 					信息按钮
 				</Button>
-				<Button type="danger" disabled>
+				<Button theme="danger" disabled>
 					警告按钮
 				</Button>
-				<Button type="info" disabled>
+				<Button theme="info" disabled>
 					信息按钮
 				</Button>
 			</div>

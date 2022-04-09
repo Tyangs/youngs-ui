@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import cls from 'classnames';
 import { IButtonProps } from './type';
 import './index.scss';
 
-const Button = (props: IButtonProps) => {
+const Button = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
 	const {
 		size = 'medium',
-		type = 'default',
+		theme = 'default',
 		shape = 'rectangle',
 		outline,
 		loading,
@@ -14,13 +14,14 @@ const Button = (props: IButtonProps) => {
 		children,
 		className,
 		onClick,
+		...otherProps
 	} = props;
 
 	const buttonCls = cls('youngs-button', {
 		className,
 		'youngs-button--outline': outline,
 		'youngs-button--disabled': disabled,
-		[`youngs-button--type-${type}`]: !!type && type !== 'default',
+		[`youngs-button--theme-${theme}`]: !!theme && theme !== 'default',
 		[`youngs-button--size-${size}`]: !!size && size !== 'medium',
 		[`youngs-button--shape-${shape}`]: !!shape && shape !== 'rectangle',
 	});
@@ -28,10 +29,10 @@ const Button = (props: IButtonProps) => {
 	const buttonContainerCls = cls('youngs-button__container');
 
 	return (
-		<button className={buttonCls} onClick={onClick}>
+		<button className={buttonCls} onClick={onClick} ref={ref} {...otherProps}>
 			<div className={buttonContainerCls}>{children}</div>
 		</button>
 	);
-};
+});
 
 export default Button;

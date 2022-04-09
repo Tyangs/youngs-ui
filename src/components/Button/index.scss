@@ -1,8 +1,8 @@
 $size-small-padding: 8px 8px;
 $size-medium-padding: 10px 12px;
 $size-large-padding: 12px 20px;
-$button-disabled-color: var(--youngs-color-info-200);
-$box-shadow: 1px 1px 2px #c7c7c7, -1px -1px 2px #ffffff;
+$button-disabled-color: var(--youngs-color-gray-200);
+$box-shadow: 1px 1px 2px #c7c7c7, -1px -1px 2px var(--youngs-color-white);
 
 /**
 * mixin generate color、background、border
@@ -23,48 +23,48 @@ $box-shadow: 1px 1px 2px #c7c7c7, -1px -1px 2px #ffffff;
 /**
 * mixin generate color by different type.
 */
-@mixin genColorByType($type: default) {
-	@if ($type == default) {
+@mixin genColorByType($theme: default) {
+	@if ($theme == default) {
 		@include genColor(
-			var(--youngs-color-info-500),
-			linear-gradient(145deg, var(--youngs-color-white), var(--youngs-color-info-50)),
-			var(--youngs-color-info-300)
+			var(--youngs-color-gray-500),
+			linear-gradient(145deg, var(--youngs-color-white), var(--youngs-color-gray-50)),
+			var(--youngs-color-gray-300)
 		);
 		&:hover {
 			@include genColor(
-				var(--youngs-color-info-600),
-				linear-gradient(145deg, var(--youngs-color-white), var(--youngs-color-info-100)),
-				var(--youngs-color-info-400)
+				var(--youngs-color-gray-600),
+				linear-gradient(145deg, var(--youngs-color-white), var(--youngs-color-gray-100)),
+				var(--youngs-color-gray-400)
 			);
 		}
 		&:active {
-			@include genPressShadow(var(--youngs-color-info-200), var(--youngs-color-white));
+			@include genPressShadow(var(--youngs-color-gray-200), var(--youngs-color-white));
 		}
 	} @else {
 		@include genColor(
 			var(--youngs-color-white),
 			linear-gradient(
 				145deg,
-				var(--youngs-color-#{$type}-400),
-				var(--youngs-color-#{$type}-600)
+				var(--youngs-color-#{$theme}-400),
+				var(--youngs-color-#{$theme}-600)
 			),
-			var(--youngs-color-#{$type}-500)
+			var(--youngs-color-#{$theme}-500)
 		);
 		&:hover {
 			@include genColor(
 				var(--youngs-color-white),
 				linear-gradient(
 					145deg,
-					var(--youngs-color-#{$type}-500),
-					var(--youngs-color-#{$type}-700)
+					var(--youngs-color-#{$theme}-500),
+					var(--youngs-color-#{$theme}-700)
 				),
-				var(--youngs-color-#{$type}-600)
+				var(--youngs-color-#{$theme}-600)
 			);
 		}
 		&:active {
 			@include genPressShadow(
-				var(--youngs-color-#{$type}-700),
-				var(--youngs-color-#{$type}-500)
+				var(--youngs-color-#{$theme}-700),
+				var(--youngs-color-#{$theme}-500)
 			);
 		}
 	}
@@ -73,24 +73,24 @@ $box-shadow: 1px 1px 2px #c7c7c7, -1px -1px 2px #ffffff;
 /**
 * mixin outline styles by different type.
 */
-@mixin genOutlineByType($type: default) {
-	@if ($type == default) {
+@mixin genOutlineByType($theme: default) {
+	@if ($theme == default) {
 		// TODO: will add default case.
 	} @else {
 		@include genColor(
-			var(--youngs-color-#{$type}-500),
+			var(--youngs-color-#{$theme}-500),
 			transparent,
-			var(--youngs-color-#{$type}-500)
+			var(--youngs-color-#{$theme}-500)
 		);
 		&:hover {
 			@include genColor(
-				var(--youngs-color-#{$type}-600),
+				var(--youngs-color-#{$theme}-600),
 				transparent,
-				var(--youngs-color-#{$type}-600)
+				var(--youngs-color-#{$theme}-600)
 			);
 		}
 		&:active {
-			@include genPressShadow(var(--youngs-color-info-300), var(--youngs-color-white));
+			@include genPressShadow(var(--youngs-color-gray-300), var(--youngs-color-white));
 		}
 	}
 }
@@ -98,9 +98,9 @@ $box-shadow: 1px 1px 2px #c7c7c7, -1px -1px 2px #ffffff;
 /**
 * mixin disabled styles by different type.
 */
-@mixin genDisabledByType($type: default) {
+@mixin genDisabledByType($theme: default) {
 	pointer-events: none;
-	@if ($type == default) {
+	@if ($theme == default) {
 		@include genColor(
 			$button-disabled-color,
 			var(--youngs-color-white),
@@ -118,16 +118,16 @@ $box-shadow: 1px 1px 2px #c7c7c7, -1px -1px 2px #ffffff;
 	} @else {
 		@include genColor(
 			var(--youngs-color-white),
-			var(--youngs-color-#{$type}-300),
-			var(--youngs-color-#{$type}-300)
+			var(--youngs-color-#{$theme}-300),
+			var(--youngs-color-#{$theme}-300)
 		);
 
 		&:hover,
 		&:active {
 			@include genColor(
 				var(--youngs-color-white),
-				var(--youngs-color-#{$type}-300),
-				var(--youngs-color-#{$type}-300)
+				var(--youngs-color-#{$theme}-300),
+				var(--youngs-color-#{$theme}-300)
 			);
 		}
 	}
@@ -151,7 +151,7 @@ $box-shadow: 1px 1px 2px #c7c7c7, -1px -1px 2px #ffffff;
 	@include genColorByType(default);
 	// 👇🏻 outline
 	&--outline {
-		@include genOutlineByType(info);
+		@include genOutlineByType(gray);
 	}
 	// 👇🏻 disabled
 	&--disabled {
@@ -169,59 +169,59 @@ $box-shadow: 1px 1px 2px #c7c7c7, -1px -1px 2px #ffffff;
 	}
 
 	// 👇🏻 different type
-	&--type-primary {
-		@include genColorByType(primary);
+	&--theme-primary {
+		@include genColorByType(blue);
 		// 👇🏻 primary outline
 		&.youngs-button--outline {
-			@include genOutlineByType(primary);
+			@include genOutlineByType(blue);
 		}
 		// 👇🏻 primary disabled
 		&.youngs-button--disabled {
-			@include genDisabledByType(primary);
+			@include genDisabledByType(blue);
 		}
 	}
-	&--type-success {
-		@include genColorByType(success);
+	&--theme-success {
+		@include genColorByType(teal);
 		// 👇🏻 primary outline
 		&.youngs-button--outline {
-			@include genOutlineByType(success);
+			@include genOutlineByType(teal);
 		}
 		// 👇🏻 primary disabled
 		&.youngs-button--disabled {
-			@include genDisabledByType(success);
+			@include genDisabledByType(teal);
 		}
 	}
-	&--type-warning {
-		@include genColorByType(warning);
+	&--theme-warning {
+		@include genColorByType(yellow);
 		// 👇🏻 primary outline
 		&.youngs-button--outline {
-			@include genOutlineByType(warning);
+			@include genOutlineByType(yellow);
 		}
 		// 👇🏻 primary disabled
 		&.youngs-button--disabled {
-			@include genDisabledByType(warning);
+			@include genDisabledByType(yellow);
 		}
 	}
-	&--type-danger {
-		@include genColorByType(danger);
+	&--theme-danger {
+		@include genColorByType(red);
 		// 👇🏻 primary outline
 		&.youngs-button--outline {
-			@include genOutlineByType(danger);
+			@include genOutlineByType(red);
 		}
 		// 👇🏻 primary disabled
 		&.youngs-button--disabled {
-			@include genDisabledByType(danger);
+			@include genDisabledByType(red);
 		}
 	}
-	&--type-info {
-		@include genColorByType(info);
+	&--theme-info {
+		@include genColorByType(gray);
 		// 👇🏻 primary outline
 		&.youngs-button--outline {
-			@include genOutlineByType(info);
+			@include genOutlineByType(gray);
 		}
 		// 👇🏻 primary disabled
 		&.youngs-button--disabled {
-			@include genDisabledByType(info);
+			@include genDisabledByType(gray);
 		}
 	}
 
