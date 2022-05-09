@@ -1,5 +1,5 @@
-import { pick } from '../../utils';
-import { Dict } from '../../types';
+import { pick } from '@/utils';
+import { Dict } from '@/types';
 
 const tokens = [
   'colors',
