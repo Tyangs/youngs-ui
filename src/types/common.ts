@@ -1,3 +1,1 @@
-export type SizeEnum = 'small' | 'medium' | 'large';
-
-export type ThemeEnum = 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info';
+export type Dict<T = any> = Record<string, T>

@@ -1,34 +1,17 @@
-// import { Loading } from 'youngs-ui';
+import emotion from '@emotion/styled';
 import './index.scss';
 
+const Button = emotion.button(
+  {
+    color: 'darkorchid',
+  },
+  props => ({
+    fontSize: props.fontSize,
+  })
+);
+
 const ButtonPage = () => {
-	return (
-		<div>
-			{/* <div className="line">
-				<h3>Size: </h3>
-				<Loading size="small" />
-				<Loading />
-				<Loading size="large" />
-			</div>
-			<div className="line">
-				<h3>Type: </h3>
-				<Loading />
-				<Loading type="success" />
-				<Loading type="warning" />
-				<Loading type="danger" />
-				<Loading type="info" />
-			</div>
-			<div className="line">
-				<h3>Outline: </h3>
-			</div>
-			<div className="line">
-				<h3>Disabled: </h3>
-			</div>
-			<div className="line">
-				<h3>Shape: </h3>
-			</div> */}
-		</div>
-	);
+  return <Button fontSize={16}>This is a darkorchid button.</Button>;
 };
 
 export default ButtonPage;
