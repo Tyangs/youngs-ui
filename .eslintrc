@@ -1,11 +1,12 @@
 {
-	"parserOptions": {
-		"sourceType": "module"
-	},
-	"env": { "es6": true },
-	"plugins": ["simple-import-sort"],
-	"rules": {
-		"simple-import-sort/imports": "error",
-		"simple-import-sort/exports": "error"
-	}
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": { "es6": true },
+  "plugins": ["@typescript-eslint/eslint-plugin", "simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  }
 }
