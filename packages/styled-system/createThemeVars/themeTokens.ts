@@ -1,5 +1,4 @@
-import { Dict } from '@/types';
-import { pick } from '@/utils';
+import { Dict, pick } from '@youngs-ui/utils';
 
 const tokens = [
   'colors',

@@ -1,0 +1,28 @@
+{
+  "name": "@youngs-ui/utils",
+  "version": "0.0.1",
+  "description": "Common utilities and types for Youngs UI",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && rollup --config rollup.config.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tyangs/youngs-ui.git",
+    "directory": "packages/utils"
+  },
+  "author": {
+    "name": "t.yang",
+    "email": "t.youngs0324@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Tyangs/youngs-ui/issues"
+  }
+}
