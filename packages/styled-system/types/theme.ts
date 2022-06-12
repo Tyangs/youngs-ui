@@ -1,4 +1,4 @@
-import type { ThemeTypings as GeneratedThemeTypings } from "./theming"
+import type { GeneratedThemeTypings } from "./theming"
 
 export interface BaseThemeTypings {
   borders: string;

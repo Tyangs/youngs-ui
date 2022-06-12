@@ -1,4 +1,4 @@
-import { Dict } from '../types';
+import { Dict } from './types';
 
 export type PickResult<T extends Dict, K extends keyof T> = Record<K, T[K]>;
 

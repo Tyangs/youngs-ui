@@ -1,4 +1,4 @@
-import { fromEntries, pick } from '../object';
+import { fromEntries, pick } from '../src/object';
 
 test('should return property in object with specified keys', () => {
   const object = {

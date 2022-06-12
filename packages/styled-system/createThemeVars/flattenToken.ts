@@ -1,4 +1,4 @@
-import { flatten, fromEntries } from '@/utils';
+import { flatten, fromEntries } from '@youngs-ui/utils';
 
 export type PlainToken = { isSemantic: false; value: string | number };
 export type SemanticToken = { isSemantic: true; value: string | number };
