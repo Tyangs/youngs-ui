@@ -1,0 +1,30 @@
+{
+  "name": "@youngs-ui/styled-system",
+  "version": "0.0.1",
+  "description": "Style function for css-in-js building component libraries",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && rollup --config rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tyangs/youngs-ui.git",
+    "directory": "packages/styled-system"
+  },
+  "author": {
+    "name": "t.yang",
+    "email": "t.youngs0324@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Tyangs/youngs-ui/issues"
+  },
+  "dependencies": {
+    "@youngs-ui/utils": "0.0.1"
+  }
+}

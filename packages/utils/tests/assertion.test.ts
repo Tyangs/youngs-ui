@@ -1,4 +1,4 @@
-import { isArray, isObject } from '../assertion';
+import { isArray, isObject } from '../src/assertion';
 
 test('is array', () => {
   expect(isArray([])).toBeTruthy();

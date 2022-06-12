@@ -1,4 +1,5 @@
-import { Dict } from '@/types';
+import { Dict } from '@youngs-ui/utils';
+
 export interface CreateThemeVarsOptions {
   cssVarPrefix?: string;
 }
