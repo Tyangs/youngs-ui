@@ -1,8 +1,14 @@
 import { isArray, isObject } from './assertion';
 import { Dict } from './types';
 
+/**
+ * flatten object or array with maxDepth
+ * @param values will flattened object or array
+ * @param maxDepth max recursion time, default is `Infinity`
+ * @returns the flattened object
+ */
 export const flatten = (values: Dict, maxDepth = Infinity) => {
-  // 当 values 为非对象或数组，或者已递归了 maxDepth 次，则退出递归
+  // exit recursion when values is not object, or not array, or recursive maxDepth time
   if ((!isObject(values) && !isArray(values)) || !maxDepth) {
     return values;
   }

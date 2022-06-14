@@ -10,21 +10,32 @@ export type FlattenTokensParam = {
   semanticTokens?: object;
 };
 
-export const flattenTokens = <T extends FlattenTokensParam>({ tokens, semanticTokens }: T) => {
-  const tokenEntries = Object.entries(tokens ? flatten(tokens) : {}).map(([token, value]) => {
-    const enhancedToken = {
-      isSemantic: false,
-      value,
-    };
-    return [token, enhancedToken] as [string, PlainToken];
-  });
-  const semanticTokenEntries = Object.entries(semanticTokens ? flatten(semanticTokens) : {}).map(([token, value]) => {
-    const enhancedToken = {
+export const flattenTokens = <T extends FlattenTokensParam>({
+  tokens,
+  semanticTokens,
+}: T): Record<string, FlatToken> => {
+  const tokenEntries = Object.entries(tokens ? flatten(tokens) : {}).reduce<Record<string, PlainToken>>(
+    (pre, [token, value]) => {
+      const enhancedToken: PlainToken = {
+        isSemantic: false,
+        value,
+      };
+      pre[token] = enhancedToken;
+      return pre;
+    },
+    {}
+  );
+
+  const semanticTokenEntries = Object.entries(semanticTokens ? flatten(semanticTokens) : {}).reduce<
+    Record<string, SemanticToken>
+  >((pre, [token, value]) => {
+    const enhancedToken: SemanticToken = {
       isSemantic: true,
       value,
     };
-    return [token, enhancedToken] as [string, SemanticToken];
-  });
+    pre[token] = enhancedToken;
+    return pre;
+  }, {});
 
-  return fromEntries<FlatToken>([...tokenEntries, ...semanticTokenEntries]);
+  return { ...tokenEntries, ...semanticTokenEntries };
 };
