@@ -1,36 +1,36 @@
 /**
- * 将字符串中的空格替换成其他字符串
- * @param value 需要被替换空格的字符串值
- * @param replaceValue 替换的字符串值，默认为 '-'
- * @returns 将 value 中空格替换成 replaceValue 的结果字符串
+ * replace white space to custom string(second param)
+ * @param value will be replaced string
+ * @param replaceValue string that to replace white space, default is `-`
+ * @returns the replaced result string
  */
 export const replaceWhiteSpace = (value: string, replaceValue = '-'): string => {
   return value.replace(/\s+/g, replaceValue);
 };
 
 /**
- * 给字符串添加前缀字符串
- * @param value 需要添加前缀的字符串值
- * @param prefix 前缀，默认为 ''
- * @returns 添加完前缀的结果字符串
+ * add prefix to a string
+ * @param value the string to be prefixed with
+ * @param prefix prefix string, default is empty string
+ * @returns the added prefixed result string
  */
 export const addPrefix = (value: string, prefix = ''): string => {
   return [prefix, value].filter(Boolean).join('-');
 };
 
 /**
- * 得到 css 变量字符串
- * @param value 变量字符串
- * @param prefix 前缀，默认为 ''
- * @returns 得到含有前缀的 css 变量字符串
+ * get css variable string
+ * @param value variable string
+ * @param prefix prefix, default is empty string
+ * @returns css variable string that with prefix
  */
 export const getVariable = (value: string, prefix = ''): string => {
   return `--${addPrefix(value, prefix)}`;
 };
 
 /**
- * 得到 css reference
- * @param name css 变量字符串
+ * get css reference
+ * @param name css variable string
  * @returns css reference
  */
 export const getReference = (name: string): string => {
@@ -38,17 +38,19 @@ export const getReference = (name: string): string => {
 };
 
 /**
- * 得到 css 变量对象
- * @param name css 变量字符串
- * @param cssVarPrefix css 变量前缀
- * @returns css 变量对象
+ * get css variable object
+ * @param value css variable string
+ * @param cssVarPrefix css variable prefix string
+ * @returns css variable object
  */
-export const getCssVar = (name: string, cssVarPrefix?: string): CssVar => {
-  const cssVariable = getVariable(name, cssVarPrefix);
+export const getCssVar = (value: string, cssVarPrefix?: string): CssVar => {
+  const cssVariable = getVariable(value, cssVarPrefix);
+
+  const cssReference = getReference(cssVariable);
 
   return {
     variable: cssVariable,
-    reference: getReference(cssVariable),
+    reference: cssReference,
   };
 };
 
