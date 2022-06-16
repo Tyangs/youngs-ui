@@ -5,7 +5,7 @@ import { Dict } from './types';
  * flatten object or array with maxDepth
  * @param values will flattened object or array
  * @param maxDepth max recursion time, default is `Infinity`
- * @returns the flattened object
+ * @returns the flat object
  */
 export const flatten = (values: Dict, maxDepth = Infinity) => {
   // exit recursion when values is not object, or not array, or recursive maxDepth time
