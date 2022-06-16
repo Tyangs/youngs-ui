@@ -1,19 +1,17 @@
-import { flatten, fromEntries } from '@youngs-ui/utils';
+import { flatten } from '@youngs-ui/utils';
 
 export type PlainToken = { isSemantic: false; value: string | number };
 export type SemanticToken = { isSemantic: true; value: string | number };
 
 export type FlatToken = PlainToken | SemanticToken;
+export type FlatTokens = Record<string, FlatToken>;
 
-export type FlattenTokensParam = {
+export type FlatTokensParam = {
   tokens?: object;
   semanticTokens?: object;
 };
 
-export const flattenTokens = <T extends FlattenTokensParam>({
-  tokens,
-  semanticTokens,
-}: T): Record<string, FlatToken> => {
+export const flattenTokens = <T extends FlatTokensParam>({ tokens, semanticTokens }: T): FlatTokens => {
   const tokenEntries = Object.entries(tokens ? flatten(tokens) : {}).reduce<Record<string, PlainToken>>(
     (pre, [token, value]) => {
       const enhancedToken: PlainToken = {

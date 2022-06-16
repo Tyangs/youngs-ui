@@ -37,6 +37,11 @@ export const getReference = (name: string): string => {
   return `var(${getVariable(name)})`;
 };
 
+export interface CssVar {
+  variable: string;
+  reference: string;
+}
+
 /**
  * get css variable object
  * @param value css variable string
@@ -52,9 +57,4 @@ export const getCssVar = (value: string, cssVarPrefix?: string): CssVar => {
     variable: cssVariable,
     reference: cssReference,
   };
-};
-
-export type CssVar = {
-  variable: string;
-  reference: string;
 };
