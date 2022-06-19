@@ -1,5 +1,7 @@
 import { Dict } from './types';
 
+export { default as mergewith } from 'lodash.mergewith';
+
 export type PickResult<T extends Dict, K extends keyof T> = Record<K, T[K]>;
 
 /**
@@ -24,3 +26,5 @@ export const fromEntries = <T extends unknown>(entries: [string, any][]) =>
     }),
     {}
   );
+
+export const objectKeys = <T extends Dict>(obj: T) => (Object.keys(obj) as unknown) as (keyof T)[];

@@ -1,2 +1,1 @@
-export * from './createThemeVars';
-export * from './types';
+export * from './src';

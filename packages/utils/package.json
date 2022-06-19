@@ -24,5 +24,11 @@
   },
   "bugs": {
     "url": "https://github.com/Tyangs/youngs-ui/issues"
+  },
+  "dependencies": {
+    "lodash.mergewith": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/lodash.mergewith": "^4.6.7"
   }
 }
